@@ -1,0 +1,15 @@
+{
+    "name": "addBookmark",
+    "comName":"AddBookmark",
+    "version": "1.0",
+    "desc": "加入收藏 加入书签",
+    "tag":"bookmark,addToFav,加入收藏,加入书签,藏宝箱",
+    "githubName":"fatedm",
+    "author": {
+        "name": "影刃",
+        "email": "mingming.dmm@alibaba-inc.com",
+        "page": "https://github.com/fatedm"
+    },
+    "type": "kissy-gallery",
+    "type-url": "http://gallery.kissyui.com/guide"
+}
