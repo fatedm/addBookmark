@@ -82,15 +82,15 @@ KISSY.add(function (S, Base, Node, UA, Overlay) {
                     url = window.location.href;
 
                 if (self.get('hasAdded')) {
-                    self._tip(tar, cfg, cfg.hasAddedText);
+                    cfg.showTip && self._tip(tar, cfg, cfg.hasAddedText);
                     return;
                 }
 
                 try {
                     window.external.addFavorite(url, title);
-                    self._tip(tar, cfg, cfg.successText);
+                    cfg.showTip && self._tip(tar, cfg, cfg.successText);
                     self.set('hasAdded', true);
-                    cfg.showTip && self.fire('addBookmarkSuccess', {cfg: cfg});
+                    self.fire('addBookmarkSuccess', {cfg: cfg});
                 } catch (e){
                     try{
                         window.sidebar.addPanel(title, url, "");
