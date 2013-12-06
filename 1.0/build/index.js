@@ -166,6 +166,7 @@ KISSY.add('gallery/addBookmark/1.0/index',function (S, Base, Node, UA, Overlay) 
             hasAdded: false
         }
     });
+
     return AddBookmark;
 }, {
     requires: [
