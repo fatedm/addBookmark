@@ -25,11 +25,11 @@ AddBookmark是可定制、跨终端的加入书签组件。But，We can't force 
 		cls: 'ks-add-bookmark',          //按钮class，默认是ks-add-bookmark
 		successText: '加入书签成功',       //加入书签成功提示文案
 		hasAddedText: '已经加入标签了',    //ie和低ff加入书签成功后再次点击的提示文案
-		mobileTipText: '请使用加入书签功能收藏本页:)',     //移动设备的提示文案
-		windowsTipText: '请按下ctrl+d键将本页加入书签', //windows非ie、非低版本ff的提示文案
-		macTipText: '请按下command+d键将本页加入书签',  //mac下提示文案
+		mobileTipText: '请使用加入书签功能收藏本页:)',      //移动设备的提示文案
+		windowsTipText: '请按下ctrl+d键将本页加入书签',    //windows非ie、非低版本ff的提示文案
+		macTipText: '请按下command+d键将本页加入书签',     //mac下提示文案
 		operaTiptext: '请点击地址栏右侧的心形添加到藏宝箱', //windows下opera的提示文案
-		popupCls: 'ks-add-bookmark-popup',            //tip的cls，用来自定义tip样式
+		popupCls: 'ks-add-bookmark-popup',              //tip的cls，用来自定义tip样式
 		popupWidth: 300,           // tip宽度
 		popupHeight: 34,           //tip高度
 		popupAlignNode: null,      //弹层出现的位置，默认是相对加入书签按钮，设为body后位置为视窗居中
@@ -37,35 +37,7 @@ AddBookmark是可定制、跨终端的加入书签组件。But，We can't force 
 		duration: 4000             //tip的展示时间，过期隐藏
 	}
 
-因为tip是用的overlay，所以要加入overlay的必要样式，如果tip用的alert，可以用不要这些样式
 
-	.ks-overlay {
-    	position:absolute;
-    	left:-9999px;
-    	top:-9999px;
-	}
-	.ks-overlay-hidden {
-    	visibility: hidden;
-	}
-
-	.ks-overlay-mask-hidden {
-    	display: none;
-	}
-	.ks-overlay-shown {
-    	visibility: visible;
-	}
-	.ks-overlay-mask-shown{
-    	display: block;
-	}
-	.ks-add-bookmark-popup .ks-overlay-content,
-	.ks-contentbox{
-    	line-height: 34px;
-    	background: #5bc0de; 
-    	border-radius: 12px;   
-    	text-align: center;
-    	color: #fff;
-    	font-size: 14px;
-	}
 ### Attributes
 - container: 收藏按钮的父容器(dom/selecter),默认是body
 - showTip:  是否显示tip，设置为false可监听addBookmarkSuccess和addBookFailure，默认是true
@@ -88,6 +60,7 @@ AddBookmark是可定制、跨终端的加入书签组件。But，We can't force 
 
 
 ### Events
+
 -addBookmarkSuccess
 -addBookmarkFailure
 

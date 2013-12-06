@@ -160,7 +160,6 @@ KISSY.add(function (S, Base, Node, UA, Overlay) {
             hasAdded: false
         }
     });
-
     return AddBookmark;
 }, {
     requires: [
