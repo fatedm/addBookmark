@@ -37,10 +37,6 @@ KISSY.add(function (S, Base, Node, UA, Overlay) {
 
     var TMPL = '<a href="javascript:;" class="{cls}">{text}</a>';
 
-    var popup = null,
-        isShow = false;
-
-
     function AddBookmark (config) {
         if (!(this instanceof AddBookmark)) {
             return new AddBookmark(config);
@@ -52,6 +48,10 @@ KISSY.add(function (S, Base, Node, UA, Overlay) {
             S.log('container not exit');
             return;
         }
+
+        this.popup = null;
+        this.isShow = false;
+
         AddBookmark.superclass.constructor.call(this, config);
 
         this._init(cfg);
@@ -72,7 +72,8 @@ KISSY.add(function (S, Base, Node, UA, Overlay) {
         _bindEvent: function (cfg) {
             var self = this;
             $(cfg.container).delegate('click', '.' + cfg.cls, function (e) {
-                if (isShow) {
+                e.preventDefault();
+                if (self.isShow) {
                     S.log('overlay exits;');
                     return;
                 }; 
@@ -105,17 +106,17 @@ KISSY.add(function (S, Base, Node, UA, Overlay) {
 
             });
         },
-
         _tip: function (tar, cfg, str) {
             str = str || this._getTipText(cfg);
             cfg.tipType === OVERLAY ? this._overlay(tar, cfg, str) : this._alert(str); 
         },
         _overlay: function (tar, cfg, str) {
-            isShow = true;
+            var self = this;
+            self.isShow = true;
             var align = cfg.popupAlignNode === 'body' ? {points: ['cc', 'cc']} :
                 {node: tar, points: cfg.popupPoints}
-            if (!popup) {
-                popup = new Overlay({
+            if (!self.popup) {
+                self.popup = new Overlay({
                     elCls: cfg.popupCls,
                     content: str,
                     triggerType: 'click',
@@ -124,14 +125,14 @@ KISSY.add(function (S, Base, Node, UA, Overlay) {
                     align: align,
                     zIndex: 10000
                 });
-                popup.render();
+                self.popup.render();
             } else {
-                popup.set('content', str);
+                self.popup.set('content', str);
             }
-            popup.show();
+            self.popup.show();
             S.later(function() {
-                popup && popup.hide();
-                isShow = false;
+                self.popup && self.popup.hide();
+                self.isShow = false;
             }, cfg.duration);
         },
         _alert: function (str) {
