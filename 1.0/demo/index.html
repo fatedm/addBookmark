@@ -45,7 +45,8 @@
 
     S.use('gallery/addBookmark/1.0/index, node', function (S, AddBookmark, Node) {
           var demo1 = new AddBookmark({
-            container: '#demo1'
+            container: '#demo1',
+            popupPoints: ['tr', 'tl']
           }),
             demo2 = new AddBookmark({
                 container: '#demo2',
