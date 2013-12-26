@@ -19,7 +19,7 @@ AddBookmark是可定制、跨终端的加入书签组件。But，We can't force 
 	{
 		container: $('body'),		       //收藏按钮的父容器，默认是body
 		showTip: true,                    //是否显示tip
-		tipType: 'overlay',               //提示形式：默认是overlay，否则为alter
+		tipType: 'overlay',               //提示形式：默认是overlay，否则为alert
 		bookmarkTitle: document.title,    //加入书签的标题，不支持直接加入书签设置没效果
 		text: '收藏',                     //收藏按钮的文字， 无文字可设为空字符
 		cls: 'ks-add-bookmark',          //按钮class，默认是ks-add-bookmark
@@ -61,6 +61,7 @@ AddBookmark是可定制、跨终端的加入书签组件。But，We can't force 
 
 ### Events
 
--addBookmarkSuccess
+
+
 -addBookmarkFailure
 

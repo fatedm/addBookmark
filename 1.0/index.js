@@ -88,16 +88,10 @@ KISSY.add(function (S, Base, Node, UA, Overlay) {
                 }
 
                 try {
-                    window.external.addFavorite(url, title);
-                    cfg.showTip && self._tip(tar, cfg, cfg.successText);
-                    self.set('hasAdded', true);
-                    self.fire('addBookmarkSuccess', {cfg: cfg});
+                    window.external.addFavorite(url, title);                    
                 } catch (e){
                     try{
                         window.sidebar.addPanel(title, url, "");
-                        cfg.showTip && self._tip(tar, cfg, cfg.successText);
-                        self.set('hasAdded', true);
-                        self.fire('addBookmarkSuccess', {cfg: cfg});
                     } catch (e) {
                         cfg.showTip && self._tip(tar, cfg);
                         self.fire('addBookmarkFailure', {cfg: cfg});
